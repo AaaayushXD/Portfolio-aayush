@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
 import LOGO from "../assets/aayushlogo.png";
-import { Menu, Moon, Sun, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { useState } from "react";
+import { SwitchButton } from "./SwitchButton";
 
 export const Navbar: React.FC = () => {
   return (
@@ -62,9 +63,7 @@ export const DesktopNavbar: React.FC = () => {
           </Link>
         </div>
         <div className="flex items-center cursor-pointer text-[var(--background-color)] gap-5">
-          <p className="px-4 py-3 bg-[var(--primary-color)] sm:text-lg rounded-md hover:bg-[var(--hover-color)] font-bold tracking-wider max-h-[52px] text-md">
-            Hire Me
-          </p>
+          <HireMeButton />
           <ModeButton />
         </div>
       </div>
@@ -74,18 +73,19 @@ export const DesktopNavbar: React.FC = () => {
   );
 };
 
+export const HireMeButton: React.FC = () => {
+  return (
+    <p className="px-4 py-3 bg-[var(--primary-color)] sm:text-lg rounded-md hover:bg-[var(--hover-color)] font-bold tracking-wider max-h-[52px] text-md cursor-pointer">
+      Hire Me
+    </p>
+  );
+};
+
 export const ModeButton: React.FC = () => {
-  const [mode, setMode] = useState<boolean>(false);
-  const modeHandler = () => {
-    setMode((prev) => !prev);
-  };
   return (
     <>
-      <div
-        className="w-[40px] h-[40px] rounded-full flex justify-center items-center text-[var(--text-primary)] cursor-pointer"
-        onClick={modeHandler}
-      >
-        {mode ? <Moon size={30} /> : <Sun size={30} />}
+      <div className="rounded-full flex justify-center items-center text-[var(--text-primary)] cursor-pointer ">
+        <SwitchButton />
       </div>
     </>
   );
@@ -112,12 +112,12 @@ export const MobileMenu: React.FC = () => {
             {menu ? (
               <X
                 size={40}
-                className="cursor-pointer text-[red] hover:text-red-800"
+                className="cursor-pointer text-[red] hover:text-red-800 "
               />
             ) : (
               <Menu
                 size={40}
-                className="cursor-pointer hover:text-[var(--hover-color)]"
+                className="cursor-pointer hover:text-[var(--hover-color)] "
               />
             )}
           </div>
@@ -125,43 +125,45 @@ export const MobileMenu: React.FC = () => {
         </div>
       </div>
       <div className="w-full border-2 border-[var(--navbar-color)]"></div>
-      {menu && (
-        <div
-          className="w-full h-full bg-[var(--secondary-color)] flex justify-center items-center flex-col gap-6 py-8 "
-          id="bigMenu"
-        >
-          <Link
-            to={"#"}
-            className="px-4 text-xl hover:font-bold  hover:border-[var(--primary-color)] h-full flex items-center border-b-2 border-b-transparent"
+      <div className="relative z-50 w-full h-full" style={{ zIndex: 3 }}>
+        {menu && (
+          <div
+            className="w-full h-[300px] bg-[var(--secondary-color)] flex justify-center items-center flex-col gap-6 py-8 absolute top-0 left-0"
+            id="bigMenu"
           >
-            Home
-          </Link>
-          <Link
-            to={"#about"}
-            className="px-4 text-xl hover:font-bold hover:border-[var(--primary-color)] h-full flex items-center border-b-2 border-b-transparent"
-          >
-            About
-          </Link>
-          <Link
-            to={"#skills"}
-            className="px-4 text-xl hover:font-bold hover:border-[var(--primary-color)] h-full flex items-center border-b-2 border-b-transparent"
-          >
-            Skills
-          </Link>
-          <Link
-            to={"#projects"}
-            className="px-4 text-xl hover:font-bold hover:border-[var(--primary-color)] h-full flex items-center border-b-2 border-b-transparent"
-          >
-            Projects
-          </Link>
-          <Link
-            to={"#contact"}
-            className="px-4 text-xl hover:font-bold hover:border-[var(--primary-color)] h-full flex items-center border-b-2 border-b-transparent"
-          >
-            Contact
-          </Link>
-        </div>
-      )}
+            <Link
+              to={"#"}
+              className="px-4 text-xl hover:font-bold  hover:border-[var(--primary-color)] h-full flex items-center border-b-2 border-b-transparent"
+            >
+              Home
+            </Link>
+            <Link
+              to={"#about"}
+              className="px-4 text-xl hover:font-bold hover:border-[var(--primary-color)] h-full flex items-center border-b-2 border-b-transparent"
+            >
+              About
+            </Link>
+            <Link
+              to={"#skills"}
+              className="px-4 text-xl hover:font-bold hover:border-[var(--primary-color)] h-full flex items-center border-b-2 border-b-transparent"
+            >
+              Skills
+            </Link>
+            <Link
+              to={"#projects"}
+              className="px-4 text-xl hover:font-bold hover:border-[var(--primary-color)] h-full flex items-center border-b-2 border-b-transparent"
+            >
+              Projects
+            </Link>
+            <Link
+              to={"#contact"}
+              className="px-4 text-xl hover:font-bold hover:border-[var(--primary-color)] h-full flex items-center border-b-2 border-b-transparent"
+            >
+              Contact
+            </Link>
+          </div>
+        )}
+      </div>
     </>
   );
 };
