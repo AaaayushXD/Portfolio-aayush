@@ -24,7 +24,10 @@ const LandingPage = () => {
               is to leverage my skills and knowledge to contribute to innovative
               web applications that solve real-world problems.
             </p>
-            <div className="flex text-[var(--background-color)] gap-6 items-center  py-8">
+            <div
+              className="flex text-[var(--background-color)] gap-6 items-center  py-8"
+              style={{ zIndex: 5 }}
+            >
               <HireMeButton />
               <div className="h-[52px] border-2 border-[var(--navbar-color)] px-5 py-3 rounded-md hover:bg-[var(--hover-secondary-color)] text-[var(--grey-text)] flex items-center gap-2  transition-[1s] cursor-pointer hover:text-[--text-primary] ">
                 <p className="font-bold tracking-wide ">Projects</p>
@@ -38,6 +41,7 @@ const LandingPage = () => {
               backgroundRepeat: "no-repeat",
               backgroundPosition: "center",
               backgroundSize: "cover",
+              zIndex: 5,
             }}
           >
             <img
@@ -49,7 +53,6 @@ const LandingPage = () => {
           </div>
         </div>
       </div>
-      <div className="border-2 border-[var(--navbar-color)] mt-8"></div>
     </>
   );
 };
