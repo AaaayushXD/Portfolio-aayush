@@ -26,8 +26,8 @@ const LandingPage = () => {
             </p>
             <div className="flex text-[var(--background-color)] gap-6 items-center  py-8">
               <HireMeButton />
-              <div className="h-[52px] border-2 border-[var(--navbar-color)] px-5 py-3 rounded-md hover:text-[var(--text-primary)] text-[var(--grey-text)] flex items-center gap-2  transition-[1s] cursor-pointer">
-                <p className="font-semibold tracking-wider ">Works</p>
+              <div className="h-[52px] border-2 border-[var(--navbar-color)] px-5 py-3 rounded-md hover:bg-[var(--hover-secondary-color)] text-[var(--grey-text)] flex items-center gap-2  transition-[1s] cursor-pointer hover:text-[--text-primary] ">
+                <p className="font-bold tracking-wide ">Projects</p>
               </div>
             </div>
           </div>

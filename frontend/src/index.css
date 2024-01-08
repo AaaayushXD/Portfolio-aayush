@@ -16,6 +16,8 @@
     --hover-color: #006d77;
     --text-primary: #3e3e3e;
     --grey-text: #6d6d6d;
+    --hover-primary-color: #9ffffc;
+    --hover-secondary-color: #ffd9cc;
   }
 
   body {
