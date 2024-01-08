@@ -8,6 +8,7 @@
   }
 
   :root {
+    --text-secondary: #fefefe;
     --background-color: #edf6f9;
     --navbar-color: #e29578;
     --secondary-color: #ffddd2;
@@ -32,5 +33,14 @@
   ::selection {
     background-color: var(--primary-color);
     color: var(--background-color);
+  }
+
+  .skill-section {
+    background: rgba(237, 246, 249, 0.25);
+    box-shadow: 0 8px 32px 0 rgba(73, 73, 73, 0.37);
+    backdrop-filter: blur(4.5px);
+    -webkit-backdrop-filter: blur(4.5px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
   }
 }

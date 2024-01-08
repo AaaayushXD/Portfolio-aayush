@@ -1,10 +1,10 @@
 export const About: React.FC = () => {
   return (
     <>
-      <div className="flex flex-col items-center justify-center w-full h-full px-4 py-5">
-        <div className="max-w-[1700px] grid grid-cols-1 md:grid-cols-2 place-items-center py-8 px-2 gap-8">
+      <div className="flex flex-col items-center justify-center w-full h-full px-4 py-5 bg-[#fefefe]">
+        <div className="max-w-[1700px] grid grid-cols-1 md:grid-cols-2 place-items-center py-8 px-2 gap-8 min-h-[60vh]">
           <div className="relative">
-            <h2 className="text-3xl font-bold text-[var(--text-primary)] text-center">
+            <h2 className="text-3xl font-bold text-[var(--text-primary)] ">
               About Me
             </h2>
             <div className="absolute border-b-4 border-[var(--primary-color)] w-[100px] left-0 bottom-[-5px] "></div>
@@ -26,7 +26,6 @@ export const About: React.FC = () => {
           </div>
         </div>
       </div>
-      <div className="border-2 border-[var(--navbar-color)] mb-8"></div>
     </>
   );
 };

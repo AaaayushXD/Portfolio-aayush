@@ -6,12 +6,12 @@ import { SwitchButton } from "./SwitchButton";
 
 export const Navbar: React.FC = () => {
   return (
-    <nav className="sticky">
+    <nav className="">
       <div className="flex-col items-center justify-center hidden w-full select-none lg:flex">
         <DesktopNavbar />
       </div>
 
-      <div className="sticky select-none lg:hidden">
+      <div className="select-none lg:hidden">
         <MobileMenu />
       </div>
     </nav>
@@ -75,7 +75,7 @@ export const DesktopNavbar: React.FC = () => {
 
 export const HireMeButton: React.FC = () => {
   return (
-    <p className="px-4 py-3 bg-[var(--primary-color)] sm:text-lg rounded-md hover:bg-[var(--hover-color)] font-bold tracking-wider max-h-[52px] text-md cursor-pointer">
+    <p className="px-4 py-3 bg-[var(--primary-color)] sm:text-lg rounded-md hover:bg-[var(--hover-color)] font-bold tracking-wider h-[52px] text-md cursor-pointer">
       Hire Me
     </p>
   );

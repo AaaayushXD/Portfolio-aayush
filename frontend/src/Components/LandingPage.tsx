@@ -49,7 +49,7 @@ const LandingPage = () => {
           </div>
         </div>
       </div>
-      <div className="border-2 border-[var(--navbar-color)] mb-8"></div>
+      <div className="border-2 border-[var(--navbar-color)] mt-8"></div>
     </>
   );
 };
