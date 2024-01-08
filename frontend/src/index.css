@@ -1,0 +1,25 @@
+@import "tailwindcss/base";
+@import "tailwindcss/utilities";
+@import "tailwindcss/components";
+
+@layer {
+  ::-webkit-scrollbar {
+    width: 0;
+  }
+
+  :root {
+    --background-color: #edf6f9;
+    --navbar-color: #e29578;
+    --secondary-color: #ffddd2;
+
+    --primary-color: #39b2ad;
+    --hover-color: #006d77;
+    --text-primary: #3e3e3e;
+  }
+
+  body {
+    background-color: var(--background-color);
+    font-family: "Poppins", sans-serif;
+  }
+
+}
