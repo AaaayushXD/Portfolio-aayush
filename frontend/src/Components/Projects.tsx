@@ -5,7 +5,10 @@ import Html from "../assets/html.png";
 export const Projects = () => {
   return (
     <>
-      <div className="flex items-center justify-center w-full h-full">
+      <div
+        className="flex items-center justify-center w-full h-full"
+        id="project-section"
+      >
         <div className="max-w-[1700px] h-full flex gap-10 w-full px-4 py-10 items-center flex-col">
           <div className="relative flex flex-col w-full">
             <h2 className="text-3xl font-bold text-[var(--text-primary)] ">

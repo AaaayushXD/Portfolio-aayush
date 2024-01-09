@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import LOGO from "../assets/aayushlogo.png";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
@@ -31,36 +30,36 @@ export const DesktopNavbar: React.FC = () => {
           />
         </a>
         <div className="flex items-center h-[80px] gap-8">
-          <Link
-            to={"#"}
+          <a
+            href={"#"}
             className="px-4 text-xl hover:bg-[var(--primary-color)] h-full flex items-center"
           >
             Home
-          </Link>
-          <Link
-            to={"#about"}
+          </a>
+          <a
+            href={"#about-section"}
             className="px-4 text-xl hover:bg-[var(--primary-color)] h-full flex items-center"
           >
             About
-          </Link>
-          <Link
-            to={"#skills"}
+          </a>
+          <a
+            href={"#skills-section"}
             className="px-4 text-xl hover:bg-[var(--primary-color)] h-full flex items-center"
           >
             Skills
-          </Link>
-          <Link
-            to={"#projects"}
+          </a>
+          <a
+            href={"#project-section"}
             className="px-4 text-xl hover:bg-[var(--primary-color)] h-full flex items-center"
           >
             Projects
-          </Link>
-          <Link
-            to={"#contact"}
+          </a>
+          <a
+            href={"#contact-section"}
             className="px-4 text-xl hover:bg-[var(--primary-color)] h-full flex items-center"
           >
             Contact
-          </Link>
+          </a>
         </div>
         <div className="flex items-center cursor-pointer text-[var(--background-color)] gap-5">
           <HireMeButton />
@@ -75,9 +74,12 @@ export const DesktopNavbar: React.FC = () => {
 
 export const HireMeButton: React.FC = () => {
   return (
-    <p className="px-4 py-3 bg-[var(--primary-color)] sm:text-lg rounded-md hover:bg-[var(--hover-color)] font-bold tracking-wider h-[52px] text-md cursor-pointer">
+    <a
+      href="#contact-section"
+      className="px-4 py-3 bg-[var(--primary-color)] sm:text-lg rounded-md hover:bg-[var(--hover-color)] font-bold tracking-wider h-[52px] text-md cursor-pointer"
+    >
       Hire Me
-    </p>
+    </a>
   );
 };
 
@@ -125,42 +127,46 @@ export const MobileMenu: React.FC = () => {
         </div>
       </div>
       <div className="w-full border-2 border-[var(--navbar-color)]"></div>
-      <div className="relative z-50 w-full h-full" style={{ zIndex: 3 }}>
+      <div
+        className="relative z-50 w-full h-full"
+        style={{ zIndex: 3 }}
+        onClick={menuHandler}
+      >
         {menu && (
           <div
             className="w-full h-[300px] bg-[var(--secondary-color)] flex justify-center items-center flex-col gap-6 py-8 absolute top-0 left-0"
             id="bigMenu"
           >
-            <Link
-              to={"#"}
+            <a
+              href={"#"}
               className="px-4 text-xl hover:font-bold  hover:border-[var(--primary-color)] h-full flex items-center border-b-2 border-b-transparent"
             >
               Home
-            </Link>
-            <Link
-              to={"#about"}
+            </a>
+            <a
+              href={"#about-section"}
               className="px-4 text-xl hover:font-bold hover:border-[var(--primary-color)] h-full flex items-center border-b-2 border-b-transparent"
             >
               About
-            </Link>
-            <Link
-              to={"#skills"}
+            </a>
+            <a
+              href={"#skills-section"}
               className="px-4 text-xl hover:font-bold hover:border-[var(--primary-color)] h-full flex items-center border-b-2 border-b-transparent"
             >
               Skills
-            </Link>
-            <Link
-              to={"#projects"}
+            </a>
+            <a
+              href={"#project-section"}
               className="px-4 text-xl hover:font-bold hover:border-[var(--primary-color)] h-full flex items-center border-b-2 border-b-transparent"
             >
               Projects
-            </Link>
-            <Link
-              to={"#contact"}
+            </a>
+            <a
+              href={"#contact-section"}
               className="px-4 text-xl hover:font-bold hover:border-[var(--primary-color)] h-full flex items-center border-b-2 border-b-transparent"
             >
               Contact
-            </Link>
+            </a>
           </div>
         )}
       </div>

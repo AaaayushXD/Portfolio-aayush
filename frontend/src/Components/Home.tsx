@@ -10,10 +10,12 @@ import { Projects } from "./Projects";
 import { Contact } from "./Contact";
 import { Footer } from "./Footer";
 
-export const Home = () => {
+export const Home: React.FC = () => {
   return (
     <div>
-      <Navbar />
+      <div className="w-full h-full ">
+        <Navbar />
+      </div>
       <div className="relative w-full h-full">
         <LandingPage />
         <BlobMakerBottom url={BottomBlob} alt="Bottom blob" />
@@ -30,7 +32,9 @@ export const Home = () => {
         <Projects />
         <div className="absolute bottom-0 left-0 border-2 border-[var(--secondary-color)] w-full "></div>
       </div>
-      <Contact />
+      <div className="w-full h-full">
+        <Contact />
+      </div>
       <div className="relative flex items-center justify-center w-full h-full">
         <div className="max-w-[1700px] w-full">
           <Footer />

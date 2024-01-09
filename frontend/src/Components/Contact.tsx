@@ -1,7 +1,10 @@
 export const Contact = () => {
   return (
     <>
-      <div className="flex items-center justify-center w-full h-full px-5 py-6">
+      <div
+        className="flex items-center justify-center w-full h-full px-5 py-6"
+        id="contact-section"
+      >
         <div className="max-w-[1700px] w-full flex flex-col gap-8 py-10">
           <div className="relative flex flex-col w-full">
             <h2 className="text-3xl font-bold text-[var(--text-primary)] ">

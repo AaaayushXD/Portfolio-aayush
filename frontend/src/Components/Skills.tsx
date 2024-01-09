@@ -5,7 +5,10 @@ import React from "../assets/react.png";
 // import { ImageSlider } from "./ImageSlider";
 export const Skills = () => {
   return (
-    <div className="flex items-center justify-center w-full h-full px-4 py-8">
+    <div
+      className="flex items-center justify-center w-full h-full px-4 py-8"
+      id="skills-section"
+    >
       <div
         className="max-w-[1700px] px-2 py-10 flex flex-col gap-10 items-center w-full"
         style={{ zIndex: 2 }}

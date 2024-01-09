@@ -6,24 +6,36 @@ export const Footer: React.FC = () => {
       <div className="w-full h-full bg-[var(--background-color)] pt-6">
         {/* links */}
         <div className="grid grid-cols-2 gap-8 max-w-screen sm:grid-cols-3 sm:gap-6">
-          <div className="px-3 py-2">
+          <div className="flex flex-col px-3 py-2">
             <h1 className="mb-6">RESOURCES</h1>
 
-            <p className="text-[var(--text-primary)] mb-4 hover:underline px-1">
+            <a
+              href="#about-section"
+              className="text-[var(--text-primary)] mb-4 hover:underline px-1"
+            >
               About Me
-            </p>
+            </a>
 
-            <p className="text-[var(--text-primary)] mb-4 hover:underline px-1">
+            <a
+              href="#skills-section"
+              className="text-[var(--text-primary)] mb-4 hover:underline px-1"
+            >
               Skills
-            </p>
+            </a>
 
-            <p className="text-[var(--text-primary)] mb-4 hover:underline px-1">
+            <a
+              href="#project-section"
+              className="text-[var(--text-primary)] mb-4 hover:underline px-1"
+            >
               Projects
-            </p>
+            </a>
 
-            <p className="text-[var(--text-primary)] mb-4 hover:underline px-1">
+            <a
+              href="#contact-section"
+              className="text-[var(--text-primary)] mb-4 hover:underline px-1"
+            >
               Contacts
-            </p>
+            </a>
           </div>
           <div className="px-3 py-2">
             <h1 className="mb-6">FOLLOW ME</h1>

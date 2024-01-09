@@ -1,7 +1,10 @@
 export const About: React.FC = () => {
   return (
     <>
-      <div className="flex flex-col items-center justify-center w-full h-full px-4 py-5 bg-[#fefefe]">
+      <div
+        className="flex flex-col items-center justify-center w-full h-full px-4 py-5 bg-[#fefefe]"
+        id="about-section"
+      >
         <div className="max-w-[1700px] grid grid-cols-1 md:grid-cols-2 place-items-center py-8 px-2 gap-8 min-h-[60vh]">
           <div className="relative">
             <h2 className="text-3xl font-bold text-[var(--text-primary)] ">

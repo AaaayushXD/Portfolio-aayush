@@ -20,6 +20,9 @@
     --hover-primary-color: #9ffffc;
     --hover-secondary-color: #ffd9cc;
   }
+  * {
+    scroll-behavior: smooth;
+  }
 
   body {
     background-color: var(--background-color);
