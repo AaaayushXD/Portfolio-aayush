@@ -2,7 +2,7 @@ export const Contact = () => {
   return (
     <>
       <div
-        className="flex items-center justify-center w-full h-full px-5 py-6"
+        className="flex items-center justify-center w-full h-full px-5 py-6 text-[var(--text-primary)]"
         id="contact-section"
       >
         <div className="max-w-[1700px] w-full flex flex-col gap-8 py-10">

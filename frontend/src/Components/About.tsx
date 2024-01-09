@@ -2,7 +2,7 @@ export const About: React.FC = () => {
   return (
     <>
       <div
-        className="flex flex-col items-center justify-center w-full h-full px-4 py-5 bg-[#fefefe]"
+        className="flex flex-col items-center justify-center w-full h-full px-4 py-5 bg-[var(--about-section-bg)] text-[var(--text-primary)]"
         id="about-section"
       >
         <div className="max-w-[1700px] grid grid-cols-1 md:grid-cols-2 place-items-center py-8 px-2 gap-8 min-h-[60vh]">

@@ -3,14 +3,28 @@ import LandingPage from "./LandingPage";
 import { Navbar } from "./Navbar";
 import { Skills } from "./Skills";
 import BottomBlob from "../assets/wave-haikei-bottom.png";
+import BottomBlobBlack from "../assets/wave-haikei-black-bottom.png";
 // import TopBlob from "../assets/wave-haikei-top.png";
 // import TopBlobBg from "../assets/wave-haikei-top-bg.png";
 // import BottomBlobBg from "../assets/wave-bottom-bg.png";
 import { Projects } from "./Projects";
 import { Contact } from "./Contact";
 import { Footer } from "./Footer";
+import { useEffect, useState } from "react";
 
 export const Home: React.FC = () => {
+  const theme = document.documentElement.getAttribute("data-theme");
+  const [image, setImage] = useState<string>("");
+  useEffect(() => {
+    if (theme === "dark") {
+      setImage(BottomBlobBlack);
+      console.log("dark theme on");
+    } else {
+      setImage(BottomBlob);
+      console.log("light on");
+    }
+  }, [theme]);
+
   return (
     <div>
       <div className="w-full h-full ">
@@ -18,7 +32,7 @@ export const Home: React.FC = () => {
       </div>
       <div className="relative w-full h-full">
         <LandingPage />
-        <BlobMakerBottom url={BottomBlob} alt="Bottom blob" />
+        <BlobMakerBottom url={image} alt="Bottom blob" />
       </div>
       <div className="relative w-full h-full">
         <About />

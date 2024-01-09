@@ -1,12 +1,21 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "../switch.css";
 
 export const SwitchButton: React.FC = () => {
-  const [mode, setMode] = useState<boolean>(false);
-  console.log(mode);
+  const [mode, setMode] = useState<"light" | "dark">("light");
+
+  useEffect(() => {
+    if (mode === "light") {
+      document.documentElement.setAttribute("data-theme", mode);
+    } else {
+      document.documentElement.setAttribute("data-theme", mode);
+    }
+  }, [mode]);
 
   const modeHandler = () => {
-    setMode((prev) => !prev);
+    const newTheme = mode === "dark" ? "light" : "dark";
+    setMode(newTheme);
+    document.documentElement.setAttribute("data-theme", newTheme);
   };
 
   return (
@@ -16,9 +25,9 @@ export const SwitchButton: React.FC = () => {
         <svg
           width="24"
           viewBox="0 0 24 24"
-          stroke-width="2"
-          stroke-linejoin="round"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinejoin="round"
+          strokeLinecap="round"
           stroke="currentColor"
           height="24"
           fill="none"

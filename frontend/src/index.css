@@ -2,12 +2,12 @@
 @import "tailwindcss/utilities";
 @import "tailwindcss/components";
 
-@layer {
+@layer base {
   ::-webkit-scrollbar {
     width: 0;
   }
 
-  :root {
+  :root[data-theme="light"] {
     --text-secondary: #fefefe;
     --background-color: #edf6f9;
     --navbar-color: #e29578;
@@ -19,7 +19,26 @@
     --grey-text: #6d6d6d;
     --hover-primary-color: #9ffffc;
     --hover-secondary-color: #ffd9cc;
+    --about-section-bg: #fefefe;
+
   }
+
+  :root[data-theme="dark"] {
+    --text-secondary: #3e3e3e;
+    --background-color: #1f1f1f;
+    --navbar-color: #ffddd2;
+    --secondary-color: #e29578;
+
+    --primary-color: #39b2ad;
+    --hover-color: #006d77;
+    --text-primary: #fefefe;
+    --grey-text: #e2e2e2;
+    --hover-primary-color: #9ffffc;
+    --hover-secondary-color: #d8a594;
+    --about-section-bg: #111111;
+
+  }
+
   * {
     scroll-behavior: smooth;
   }
@@ -39,7 +58,7 @@
   }
 
   .skill-section {
-    background: rgba(237, 246, 249, 0.25);
+    background: rgba(237, 246, 249, 0);
     box-shadow: 0 8px 32px 0 rgba(73, 73, 73, 0.37);
     backdrop-filter: blur(4.5px);
     -webkit-backdrop-filter: blur(4.5px);

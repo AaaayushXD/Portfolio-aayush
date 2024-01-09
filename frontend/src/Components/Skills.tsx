@@ -6,7 +6,7 @@ import React from "../assets/react.png";
 export const Skills = () => {
   return (
     <div
-      className="flex items-center justify-center w-full h-full px-4 py-8"
+      className="flex items-center justify-center w-full h-full px-4 py-8 text-[var(--text-primary)]"
       id="skills-section"
     >
       <div

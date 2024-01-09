@@ -3,7 +3,7 @@ import { Facebook, Github, Linkedin, Twitter } from "lucide-react";
 export const Footer: React.FC = () => {
   return (
     <>
-      <div className="w-full h-full bg-[var(--background-color)] pt-6">
+      <div className="w-full h-full bg-[var(--background-color)] pt-6 text-[var(--text-primary)]">
         {/* links */}
         <div className="grid grid-cols-2 gap-8 max-w-screen sm:grid-cols-3 sm:gap-6">
           <div className="flex flex-col px-3 py-2">

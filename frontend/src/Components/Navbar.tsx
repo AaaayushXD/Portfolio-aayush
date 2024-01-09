@@ -5,7 +5,7 @@ import { SwitchButton } from "./SwitchButton";
 
 export const Navbar: React.FC = () => {
   return (
-    <nav className="">
+    <nav className="text-[var(--text-primary)]">
       <div className="flex-col items-center justify-center hidden w-full select-none lg:flex">
         <DesktopNavbar />
       </div>
