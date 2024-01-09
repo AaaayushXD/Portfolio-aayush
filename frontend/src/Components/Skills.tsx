@@ -6,7 +6,10 @@ import React from "../assets/react.png";
 export const Skills = () => {
   return (
     <div className="flex items-center justify-center w-full h-full px-4 py-8">
-      <div className="max-w-[1700px] px-2 py-4 flex flex-col gap-6 items-center w-full">
+      <div
+        className="max-w-[1700px] px-2 py-10 flex flex-col gap-10 items-center w-full"
+        style={{ zIndex: 2 }}
+      >
         <div className="relative flex flex-col w-full">
           <h2 className="text-3xl font-bold text-[var(--text-primary)] ">
             Skills
@@ -16,7 +19,7 @@ export const Skills = () => {
           </p>
           <div className="absolute border-b-4 border-[var(--primary-color)] w-[60px] left-[5px] bottom-[40px] "></div>
         </div>
-        <div className="grid w-full grid-cols-1 gap-8 px-5 py-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 place-items-center">
+        <div className="grid w-full grid-cols-1 gap-8 px-5 py-10 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 place-items-center">
           <div className=" flex justify-center items-center py-5 flex-col gap-6 rounded-lg shadow-xl hover:scale-[1.1] skill-section cursor-pointer w-full max-w-[250px]">
             <img
               src={Html}

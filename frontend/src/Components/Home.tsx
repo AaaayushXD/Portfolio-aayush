@@ -3,7 +3,12 @@ import LandingPage from "./LandingPage";
 import { Navbar } from "./Navbar";
 import { Skills } from "./Skills";
 import BottomBlob from "../assets/wave-haikei-bottom.png";
+// import TopBlob from "../assets/wave-haikei-top.png";
+// import TopBlobBg from "../assets/wave-haikei-top-bg.png";
+// import BottomBlobBg from "../assets/wave-bottom-bg.png";
 import { Projects } from "./Projects";
+import { Contact } from "./Contact";
+import { Footer } from "./Footer";
 
 export const Home = () => {
   return (
@@ -13,9 +18,25 @@ export const Home = () => {
         <LandingPage />
         <BlobMakerBottom url={BottomBlob} alt="Bottom blob" />
       </div>
-      <About />
-      <Skills />
-      <Projects />
+      <div className="relative w-full h-full">
+        <About />
+        <div className="absolute bottom-0 left-0 border-2 border-[var(--secondary-color)] w-full "></div>
+      </div>
+      <div className="relative w-full h-full">
+        <Skills />
+        <div className="absolute bottom-0 left-0 border-2 border-[var(--secondary-color)] w-full "></div>
+      </div>
+      <div className="relative w-full h-full">
+        <Projects />
+        <div className="absolute bottom-0 left-0 border-2 border-[var(--secondary-color)] w-full "></div>
+      </div>
+      <Contact />
+      <div className="relative flex items-center justify-center w-full h-full">
+        <div className="max-w-[1700px] w-full">
+          <Footer />
+        </div>
+        <div className="absolute top-0 left-0 border-2 border-[var(--navbar-color)] w-full "></div>
+      </div>
     </div>
   );
 };
