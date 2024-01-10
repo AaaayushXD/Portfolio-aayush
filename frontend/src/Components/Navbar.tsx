@@ -2,22 +2,23 @@ import LOGO from "../assets/aayushlogo.png";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
 import { SwitchButton } from "./SwitchButton";
+import { SwitchMode } from "./mode";
 
-export const Navbar: React.FC = () => {
+export const Navbar: React.FC<SwitchMode> = (props) => {
   return (
     <nav className="text-[var(--text-primary)]">
       <div className="flex-col items-center justify-center hidden w-full select-none lg:flex">
-        <DesktopNavbar />
+        <DesktopNavbar switchMode={props.switchMode} />
       </div>
 
       <div className="select-none lg:hidden">
-        <MobileMenu />
+        <MobileMenu switchMode={props.switchMode} />
       </div>
     </nav>
   );
 };
 
-export const DesktopNavbar: React.FC = () => {
+export const DesktopNavbar: React.FC<SwitchMode> = (props) => {
   return (
     <>
       <div className="w-full h-[80px] max-w-[1700px] flex justify-around">
@@ -63,7 +64,7 @@ export const DesktopNavbar: React.FC = () => {
         </div>
         <div className="flex items-center cursor-pointer text-[var(--background-color)] gap-5">
           <HireMeButton />
-          <ModeButton />
+          <ModeButton switchMode={props.switchMode} />
         </div>
       </div>
 
@@ -83,17 +84,17 @@ export const HireMeButton: React.FC = () => {
   );
 };
 
-export const ModeButton: React.FC = () => {
+export const ModeButton: React.FC<SwitchMode> = (props) => {
   return (
     <>
       <div className="rounded-full flex justify-center items-center text-[var(--text-primary)] cursor-pointer ">
-        <SwitchButton />
+        <SwitchButton switchMode={props.switchMode} />
       </div>
     </>
   );
 };
 
-export const MobileMenu: React.FC = () => {
+export const MobileMenu: React.FC<SwitchMode> = (props) => {
   const [menu, setMenu] = useState<boolean>(false);
 
   const menuHandler = () => {
@@ -123,7 +124,7 @@ export const MobileMenu: React.FC = () => {
               />
             )}
           </div>
-          <ModeButton />
+          <ModeButton switchMode={props.switchMode} />
         </div>
       </div>
       <div className="w-full border-2 border-[var(--navbar-color)]"></div>

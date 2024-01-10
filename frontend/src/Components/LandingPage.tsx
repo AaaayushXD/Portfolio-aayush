@@ -1,9 +1,12 @@
 import { HireMeButton } from "./Navbar";
 import Image from "../assets/illustration.png";
-import Blob from "../assets/blob-haikei.png";
 import { TypeAnimation } from "react-type-animation";
 
-const LandingPage = () => {
+interface BlobImage {
+  imgBlob: string;
+}
+
+const LandingPage: React.FC<BlobImage> = (props) => {
   return (
     <>
       <div
@@ -59,9 +62,9 @@ const LandingPage = () => {
             </div>
           </div>
           <div
-            className="items-center justify-center hidden lg:flex max-w-[600px] flex-grow min-w-[500px]"
+            className="items-center justify-center hidden lg:flex max-w-[600px] flex-grow min-w-[500px] !bg-no-repeat !bg-cover !bg-center"
             style={{
-              background: `url(${Blob})`,
+              background: `url(${props.imgBlob})`,
               backgroundRepeat: "no-repeat",
               backgroundPosition: "center",
               backgroundSize: "cover",

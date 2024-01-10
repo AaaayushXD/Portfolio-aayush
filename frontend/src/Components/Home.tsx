@@ -4,35 +4,41 @@ import { Navbar } from "./Navbar";
 import { Skills } from "./Skills";
 import BottomBlob from "../assets/wave-haikei-bottom.png";
 import BottomBlobBlack from "../assets/wave-haikei-black-bottom.png";
-// import TopBlob from "../assets/wave-haikei-top.png";
-// import TopBlobBg from "../assets/wave-haikei-top-bg.png";
-// import BottomBlobBg from "../assets/wave-bottom-bg.png";
+import Blob from "../assets/blob-haikei.png";
+import BlobDark from "../assets/blob-haikei-dark.png";
 import { Projects } from "./Projects";
 import { Contact } from "./Contact";
 import { Footer } from "./Footer";
 import { useEffect, useState } from "react";
 
 export const Home: React.FC = () => {
-  const theme = document.documentElement.getAttribute("data-theme");
-  const [image, setImage] = useState<string>("");
+  const [mode, setMode] = useState<"light" | "dark">("light");
+
   useEffect(() => {
-    if (theme === "dark") {
-      setImage(BottomBlobBlack);
-      console.log("dark theme on");
+    if (mode === "light") {
+      document.documentElement.setAttribute("data-theme", mode);
     } else {
-      setImage(BottomBlob);
-      console.log("light on");
+      document.documentElement.setAttribute("data-theme", mode);
     }
-  }, [theme]);
+  }, [mode]);
+
+  const modeHandler = () => {
+    const newTheme = mode === "dark" ? "light" : "dark";
+    setMode(newTheme);
+    document.documentElement.setAttribute("data-theme", newTheme);
+  };
 
   return (
     <div>
       <div className="w-full h-full ">
-        <Navbar />
+        <Navbar switchMode={modeHandler} />
       </div>
-      <div className="relative w-full h-full">
-        <LandingPage />
-        <BlobMakerBottom url={image} alt="Bottom blob" />
+      <div className="relative w-full h-full transition-all duration-500 ease-in delay-150 bg-center !bg-no-repeat !bg-cover">
+        <LandingPage imgBlob={mode === "light" ? Blob : BlobDark} />
+        <BlobMakerBottom
+          url={mode === "light" ? BottomBlob : BottomBlobBlack}
+          alt="Bottom blob"
+        />
       </div>
       <div className="relative w-full h-full">
         <About />

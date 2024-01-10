@@ -1,26 +1,10 @@
-import { useEffect, useState } from "react";
 import "../switch.css";
+import { SwitchMode } from "./mode";
 
-export const SwitchButton: React.FC = () => {
-  const [mode, setMode] = useState<"light" | "dark">("light");
-
-  useEffect(() => {
-    if (mode === "light") {
-      document.documentElement.setAttribute("data-theme", mode);
-    } else {
-      document.documentElement.setAttribute("data-theme", mode);
-    }
-  }, [mode]);
-
-  const modeHandler = () => {
-    const newTheme = mode === "dark" ? "light" : "dark";
-    setMode(newTheme);
-    document.documentElement.setAttribute("data-theme", newTheme);
-  };
-
+export const SwitchButton: React.FC<SwitchMode> = (props) => {
   return (
     <>
-      <label className="theme focus:outline-none" onClick={modeHandler}>
+      <label className="theme focus:outline-none" onClick={props.switchMode}>
         <input className="input" type="checkbox" />
         <svg
           width="24"
