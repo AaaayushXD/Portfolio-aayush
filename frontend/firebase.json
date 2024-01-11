@@ -4,12 +4,9 @@
     "indexes": "firestore.indexes.json"
   },
   "hosting": {
+    "site": "aayush-al",
     "public": "dist",
-    "ignore": [
-      "firebase.json",
-      "**/.*",
-      "**/node_modules/**"
-    ]
+    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"]
   },
   "storage": {
     "rules": "storage.rules"
