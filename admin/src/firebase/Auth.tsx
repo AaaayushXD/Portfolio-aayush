@@ -29,7 +29,6 @@ export const AuthProvider: React.FC<AuthProviderProp> = ({ children }) => {
       const provider = new GoogleAuthProvider();
       const adminId = import.meta.env.VITE_UID;
       const currentUser = await signInWithPopup(auth, provider);
-      console.log(currentUser);
       const uid = currentUser.user.uid;
       if (uid !== adminId.trim()) throw new Error("Not an Admin. try again");
       const credential = GoogleAuthProvider.credentialFromResult(currentUser);
