@@ -4,9 +4,10 @@ import {
   ImageProp,
   ProjectDetail,
   ProjectProps,
+  ShowProject,
 } from "../models/models";
 import { uploadImage } from "../database/database";
-import { ImagePlus } from "lucide-react";
+import { Github, ImagePlus, Link, Trash } from "lucide-react";
 
 export const Projects: React.FC<ProjectProps> = (props) => {
   return (
@@ -19,6 +20,10 @@ export const Projects: React.FC<ProjectProps> = (props) => {
             </h1>
           </div>
           <AddProjects addProjects={props.addProject} />
+          <ShowProjects
+            projects={props.projects}
+            removeProject={props.removeProject}
+          />
         </div>
       </div>
     </>
@@ -176,6 +181,84 @@ export const AddProjects: React.FC<AddProject> = (props) => {
             Add
           </button>
         </form>
+      </div>
+    </>
+  );
+};
+
+export const ShowProjects: React.FC<ShowProject> = (props) => {
+  const removeHandler = (detail: ProjectDetail) => {
+    props.removeProject({ folder: "projects" }, detail);
+  };
+  return (
+    <>
+      <div className="items-center justify-center w-full h-full px-5 py-8">
+        <div className="max-w-[1500px] grid grid-cols-1 place-items-center gap-8">
+          {props.projects &&
+            props.projects.map((project) => {
+              return (
+                <div
+                  className="flex flex-col-reverse items-center justify-around gap-10 px-6 py-2 overflow-hidden md:flex-row "
+                  key={project.name}
+                >
+                  <div className=" hover:scale-[1.025] flex justify-center items-center basis-1/2 ">
+                    <div className="relative cursor-pointer">
+                      <img
+                        src={project.url}
+                        alt={project.name}
+                        className="bg-center bg-cover bg-no-repeat max-h-[450px] rounded-md "
+                      />
+                      <div className="absolute w-full h-full top-0 left-0 bg-[#3e3e3e54] hover:bg-transparent rounded-md"></div>
+                    </div>
+                  </div>
+                  <div className="flex flex-col items-center justify-center w-full h-full gap-5 text-left md:px-8 basis-1/2">
+                    <div className="flex items-center justify-between w-full gap-5 pt-4 font-bold tracking-wider">
+                      <div className="flex items-center gap-5 ">
+                        <h4 className="text-3xl text-[#39b2ad]">
+                          {project.name}
+                        </h4>
+
+                        <span className="flex gap-3">
+                          <a
+                            href={project.demoLink}
+                            target="_blank"
+                            className="text-[#5f5f5f] flex items-center cursor-pointer hover:text-[#2e8380] "
+                          >
+                            <Link size={20} />
+                          </a>
+                          <a
+                            href={project.githubLink}
+                            target="_blank"
+                            className="text-[#5f5f5f] flex items-center  cursor-pointer hover:text-[#2e8380]"
+                          >
+                            <Github size={20} />
+                          </a>
+                        </span>
+                      </div>
+                      <div
+                        className="text-[#ff4444] hover:bg-[#e06969] cursor-pointer px-2 py-2 rounded-md hover:text-[#fefefe] transition-all ease-in-out  duration-300"
+                        onClick={removeHandler.bind(null, project)}
+                      >
+                        <Trash size={20} />
+                      </div>
+                    </div>
+
+                    <p className="text-sm ">{project.description}</p>
+
+                    <p className="flex flex-col w-full gap-2 text-left">
+                      Demo:
+                      <span className="text-[var(--text-primary)]">
+                        id: {project.demoId}
+                      </span>
+                      <span className="text-[var(--text-primary)]">
+                        Password: {project.demoPassword}
+                      </span>
+                    </p>
+                  </div>
+                </div>
+              );
+            })}
+        </div>
       </div>
     </>
   );

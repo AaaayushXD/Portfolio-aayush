@@ -41,7 +41,6 @@ export const Home: React.FC = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-
   return (
     <>
       <Navbar />
@@ -55,6 +54,7 @@ export const Home: React.FC = () => {
           <Projects
             addProject={updateData}
             projects={projectInfo as ProjectDetail[]}
+            removeProject={removeData}
           />
         </div>
       </div>

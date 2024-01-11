@@ -37,8 +37,14 @@ export interface ShowSkillsProps {
 export interface ProjectProps {
   projects: ProjectDetail[];
   addProject: (folder: Folders, data: ProjectDetail) => void;
+  removeProject: (folder: Folders, name: ProjectDetail) => void;
 }
 
 export interface AddProject {
   addProjects: (folder: Folders, data: ProjectDetail) => void;
+}
+
+export interface ShowProject {
+  projects: ProjectDetail[];
+  removeProject: (folder: Folders, name: ProjectDetail) => void;
 }
