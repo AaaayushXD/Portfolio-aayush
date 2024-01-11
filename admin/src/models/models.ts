@@ -10,7 +10,7 @@ export interface Detail {
 export interface ProjectDetail extends Detail {
   description: string;
   demoLink: string;
-  gthubLink: string;
+  githubLink: string;
   demoId: string;
   demoPassword: string;
 }
@@ -32,4 +32,13 @@ export interface NewSkillProps {
 export interface ShowSkillsProps {
   skills: Detail[];
   removeSkill: (folder: Folders, name: Detail) => void;
+}
+
+export interface ProjectProps {
+  projects: ProjectDetail[];
+  addProject: (folder: Folders, data: ProjectDetail) => void;
+}
+
+export interface AddProject {
+  addProjects: (folder: Folders, data: ProjectDetail) => void;
 }

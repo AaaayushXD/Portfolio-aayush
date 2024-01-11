@@ -7,6 +7,7 @@ import {
   removeDataFromDataBase,
   updateDataInDataBase,
 } from "../database/database";
+import { Projects } from "./Projects";
 
 export const Home: React.FC = () => {
   // State management
@@ -36,22 +37,24 @@ export const Home: React.FC = () => {
 
   useEffect(() => {
     getData({ folder: "skills" });
+    getData({ folder: "projects" });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  useEffect(() => {
-    console.log(skillInfo);
-  }, [skillInfo, projectInfo]);
 
   return (
     <>
       <Navbar />
-      <div className="flex items-center justify-center w-full h-full px-5 py-8 selection:bg-[#39b2ad]">
-        <div className="max-w-[1700px] w-full h-full flex justify-center items-center flex-col">
+      <div className="flex items-center justify-center w-full h-full px-5 py-8 selection:bg-[#39b2ad] selection:text-[#fefefe]">
+        <div className="max-w-[1700px] w-full h-full flex justify-center items-center flex-col gap-10">
           <Skills
             addNewSkill={updateData}
             skills={skillInfo as Detail[]}
             removeSkill={removeData}
+          />
+          <Projects
+            addProject={updateData}
+            projects={projectInfo as ProjectDetail[]}
           />
         </div>
       </div>

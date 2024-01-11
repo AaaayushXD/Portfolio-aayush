@@ -1,0 +1,182 @@
+import { useState } from "react";
+import {
+  AddProject,
+  ImageProp,
+  ProjectDetail,
+  ProjectProps,
+} from "../models/models";
+import { uploadImage } from "../database/database";
+import { ImagePlus } from "lucide-react";
+
+export const Projects: React.FC<ProjectProps> = (props) => {
+  return (
+    <>
+      <div className="flex items-center justify-center w-full h-full px-5 py-8">
+        <div className="max-w-[1500px] w-full flex justify-center items-center gap-8 flex-col">
+          <div className="flex w-full">
+            <h1 className="text-left text-4xl text-[#39b2ad] font-bold tracking-wider">
+              Projects
+            </h1>
+          </div>
+          <AddProjects addProjects={props.addProject} />
+        </div>
+      </div>
+    </>
+  );
+};
+
+export const AddProjects: React.FC<AddProject> = (props) => {
+  const [image, setImage] = useState<ImageProp>();
+  const [project, setProject] = useState<ProjectDetail>({
+    name: "",
+    url: "",
+    demoLink: "",
+    demoId: "",
+    demoPassword: "",
+    description: "",
+    githubLink: "",
+  });
+  const submitForm: React.FormEventHandler<HTMLFormElement> = async (e) => {
+    e.preventDefault();
+    try {
+      const imageUrl = await uploadImage(
+        { folder: "projects" },
+        `${project.name}`,
+        image as ImageProp
+      );
+      if (imageUrl && imageUrl.length > 1) {
+        setProject((prev) => ({ ...prev, url: imageUrl }));
+        props.addProjects(
+          { folder: "projects" },
+          { ...project, url: imageUrl }
+        );
+      } else {
+        console.error("No image selected or uploaded! Please try again");
+      }
+    } catch (err) {
+      throw new Error("Unable to add new project");
+    } finally {
+      setProject({
+        name: "",
+        url: "",
+        demoLink: "",
+        demoId: "",
+        demoPassword: "",
+        description: "",
+        githubLink: "",
+      });
+      setImage(undefined);
+    }
+  };
+
+  return (
+    <>
+      <div className="flex items-center justify-center w-full h-full">
+        <form
+          className="grid w-full grid-cols-3 grid-rows-3 gap-5"
+          onSubmit={submitForm}
+        >
+          <input
+            type="text"
+            placeholder="Project Name"
+            required
+            autoComplete="off"
+            className="px-2 bg-transparent border rounded-md outline-none focus:outline-none focus:border-[#39b2ad]"
+            value={project.name}
+            onChange={(e) =>
+              setProject((prev) => ({ ...prev, name: e.target.value }))
+            }
+          ></input>
+          <input
+            type="text"
+            placeholder="Demo Link"
+            required
+            autoComplete="off"
+            value={project.demoLink}
+            onChange={(e) =>
+              setProject((prev) => ({ ...prev, demoLink: e.target.value }))
+            }
+            className="px-2 bg-transparent border rounded-md outline-none focus:outline-none focus:border-[#39b2ad]"
+          ></input>
+          <input
+            type="text"
+            placeholder="Github Link"
+            required
+            autoComplete="off"
+            value={project.githubLink}
+            onChange={(e) =>
+              setProject((prev) => ({ ...prev, githubLink: e.target.value }))
+            }
+            className="px-2 bg-transparent border rounded-md outline-none focus:outline-none focus:border-[#39b2ad]"
+          ></input>
+          <div className="relative flex items-center justify-between w-full h-full px-2 border rounded-md hover:border-[#39b2ad] cursor-pointer">
+            <label
+              htmlFor="projectImage"
+              className="w-full text-lg font-bold cursor-pointer"
+            >
+              Image:
+            </label>
+            <input
+              type="file"
+              placeholder=""
+              required
+              autoComplete="off"
+              className="hidden"
+              id="projectImage"
+              onChange={(e) => {
+                if (e.target.files && e.target.files.length > 0) {
+                  setImage({ files: e.target.files[0] });
+                }
+              }}
+            ></input>
+            <span
+              className="absolute left-[90px]  cursor-pointer"
+              style={{ zIndex: -1 }}
+            >
+              {image ? image.files.name : <ImagePlus />}
+            </span>
+          </div>
+
+          <textarea
+            placeholder="Project's Description"
+            required
+            autoComplete="off"
+            value={project.description}
+            onChange={(e) =>
+              setProject((prev) => ({ ...prev, description: e.target.value }))
+            }
+            className="px-2 py-1 bg-transparent border rounded-md outline-none focus:outline-none focus:border-[#39b2ad] col-span-2 "
+          ></textarea>
+          <input
+            type="text"
+            placeholder="Demo Id: "
+            required
+            autoComplete="off"
+            value={project.demoId}
+            onChange={(e) =>
+              setProject((prev) => ({ ...prev, demoId: e.target.value }))
+            }
+            className="px-2 bg-transparent border rounded-md outline-none focus:outline-none focus:border-[#39b2ad]"
+          ></input>
+          <input
+            type="text"
+            placeholder="Demo Password"
+            required
+            autoComplete="off"
+            value={project.demoPassword}
+            onChange={(e) =>
+              setProject((prev) => ({ ...prev, demoPassword: e.target.value }))
+            }
+            className="px-2 bg-transparent border rounded-md outline-none focus:outline-none focus:border-[#39b2ad]"
+          ></input>
+          <button
+            type="submit"
+            className="px-2 bg-transparent border rounded-md border-[#39b2ad] hover:bg-[#39b2ad] text-xl font-bold"
+          >
+            Add
+          </button>
+        </form>
+      </div>
+    </>
+  );
+};

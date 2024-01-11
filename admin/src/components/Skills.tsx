@@ -10,13 +10,12 @@ import { uploadImage } from "../database/database";
 import { CheckCheck, ImagePlus, Trash } from "lucide-react";
 
 export const Skills: React.FC<SkillProps> = (props) => {
-  console.log(props.skills);
   return (
     <>
-      <div className="flex items-center justify-center w-full h-full px-5 py-8 selection:bg-[#39b2ad] selection:text-[#fefefe]">
+      <div className="flex items-center justify-center w-full h-full px-5 py-8 ">
         <div className="max-w-[1700px] w-full h-full flex justify-center items-center flex-col">
           <div className="flex flex-col w-full gap-5">
-            <h1 className="text-2xl text-[#39b2ad] font-bold tracking-wider">Skills</h1>
+            <h1 className="text-4xl text-[#39b2ad] font-bold tracking-wider">Skills</h1>
             <div className="flex items-center justify-center w-full">
               <AddSkills addNewSkill={props.addNewSkill} />
             </div>
@@ -26,10 +25,6 @@ export const Skills: React.FC<SkillProps> = (props) => {
                 removeSkill={props.removeSkill}
               />
             </div>
-          </div>
-          <div className="flex flex-col gap-5">
-            <h1 className="text-2xl text-[#39b2ad] font-bold tracking-wider">Projects</h1>
-            <div></div>
           </div>
         </div>
       </div>
@@ -115,7 +110,6 @@ export const AddSkills: React.FC<NewSkillProps> = (props) => {
 
 export const ShowSkills: React.FC<ShowSkillsProps> = (props) => {
   const removeHandler = (detail: Detail) => {
-    console.log(detail);
     props.removeSkill({ folder: "skills" }, detail);
   };
   return (
