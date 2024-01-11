@@ -40,6 +40,7 @@ interface ProjectDetail {
 }
 export const Project: React.FC = () => {
   const [projects, setProjects] = useState<ProjectDetail[]>();
+
   const fetchData = async () => {
     const response = await getDataFromDataBase("projects");
     setProjects(response.data as ProjectDetail[]);
@@ -53,11 +54,14 @@ export const Project: React.FC = () => {
         projects.map((project, index) => {
           return (
             <div
-              className="flex flex-col-reverse items-center justify-around gap-10 px-6 py-2 overflow-hidden md:flex-row "
+              className={
+                index % 2 !== 0
+                  ? "flex flex-col-reverse items-center justify-around gap-10 px-6 py-2 overflow-hidden md:flex-row-reverse "
+                  : "flex flex-col-reverse items-center justify-around gap-10 px-6 py-2 overflow-hidden md:flex-row"
+              }
               key={index}
-              style={{ flexDirection: index % 2 === 0 ? "row" : "row-reverse" }}
             >
-              <div className=" hover:scale-[1.025] flex justify-center items-center basis-1/2 ">
+              <div className=" hover:scale-[1.025] flex justify-center items-center basis-1/2 transition-all delay-100 duration-500 ease-in-out">
                 <div className="relative cursor-pointer">
                   <img
                     src={project.url}
@@ -87,7 +91,7 @@ export const Project: React.FC = () => {
                   </span>
                 </div>
 
-                <p className="text-sm ">{project.description}</p>
+                <p className="pb-6 text-sm">{project.description}</p>
 
                 <p className="flex flex-col w-full gap-2 text-left">
                   Demo:

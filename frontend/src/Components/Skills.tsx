@@ -37,26 +37,23 @@ export const Skills = () => {
           {skills &&
             skills.map((skill, index) => {
               return (
-                <>
-                  <div
-                    className=" flex justify-center items-center py-5 flex-col gap-6 rounded-lg shadow-md hover:scale-[1.03] skill-section cursor-pointer w-full max-w-[350px] min-h-[210px] transition-all delay-100 duration-700 hover:shadow-[var(--primary-color)] hover:shadow-md"
-                    key={index}
-                  >
-                    <img
-                      src={skill.url}
-                      alt={skill.name}
-                      loading="lazy"
-                      className="max-h-[120px] px-3"
-                    />
-                    <p className="text-xl font-bold tracking-wider">
-                      {skill.name.toUpperCase()}
-                    </p>
-                  </div>
-                </>
+                <div
+                  className=" flex justify-center items-center py-5 flex-col gap-6 rounded-lg shadow-md hover:scale-[1.03] skill-section cursor-pointer w-full max-w-[350px] min-h-[210px] transition-all delay-100 duration-700 ease-in-out hover:shadow-[var(--primary-color)] hover:shadow-md"
+                  key={index}
+                >
+                  <img
+                    src={skill.url}
+                    alt={skill.name}
+                    loading="lazy"
+                    className="max-h-[120px] px-3"
+                  />
+                  <p className="text-xl font-bold tracking-wider">
+                    {skill.name.toUpperCase()}
+                  </p>
+                </div>
               );
             })}
         </div>
-
       </div>
     </div>
   );

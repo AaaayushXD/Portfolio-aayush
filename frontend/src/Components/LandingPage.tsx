@@ -1,4 +1,4 @@
-import { HireMeButton } from "./Navbar";
+
 import Image from "../assets/illustration.png";
 import { TypeAnimation } from "react-type-animation";
 
@@ -14,7 +14,7 @@ const LandingPage: React.FC<BlobImage> = (props) => {
         style={{ zIndex: 0 }}
       >
         <div
-          className="w-full max-w-[1700px] px-6 py-100 flex justify-center md:justify-around items-center min-h-[80vh] gap-4"
+          className="w-full max-w-[1700px] px-6 py-100 flex justify-center md:justify-around items-center gap-4 min-h-[80vh] "
           data-aos="fade-right"
         >
           <div className="text-[var(--text-primary)] flex flex-col w-full max-w-[700px] ">
@@ -35,7 +35,6 @@ const LandingPage: React.FC<BlobImage> = (props) => {
                 repeat={Infinity}
               />
             </h1>
-            {/* <h1 >Full Stack Developer</h1> */}
 
             <p
               className="text-sm pt-5 pb-3 text-[var(--grey-text)] max-w-[500px]
@@ -50,13 +49,12 @@ const LandingPage: React.FC<BlobImage> = (props) => {
               className="flex text-[var(--background-color)] gap-6 items-center  py-8"
               style={{ zIndex: 5 }}
             >
-              <HireMeButton />
-              <div className="h-[52px] border-2 border-[var(--navbar-color)]  rounded-md hover:bg-[var(--hover-secondary-color)] text-[var(--grey-text)] flex items-center gap-2  transition-[1s] cursor-pointer hover:text-[--text-primary] ">
+              <div className="h-[52px] border-2 border-[var(--primary-color)]  rounded-md hover:bg-[var(--primary-color)] text-[var(--text-primary)] flex items-center gap-2  transition-[1s] cursor-pointer">
                 <a
                   href="#project-section"
                   className="w-full h-full px-5 py-3 font-bold tracking-wide"
                 >
-                  Projects
+                  View Projects
                 </a>
               </div>
             </div>
@@ -65,9 +63,6 @@ const LandingPage: React.FC<BlobImage> = (props) => {
             className="items-center justify-center hidden lg:flex max-w-[600px] flex-grow min-w-[500px] !bg-no-repeat !bg-cover !bg-center"
             style={{
               background: `url(${props.imgBlob})`,
-              backgroundRepeat: "no-repeat",
-              backgroundPosition: "center",
-              backgroundSize: "cover",
               zIndex: 5,
             }}
           >

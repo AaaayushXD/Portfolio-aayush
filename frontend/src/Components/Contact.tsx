@@ -16,7 +16,11 @@ export const Contact = () => {
             <div className="absolute border-b-4 border-[var(--primary-color)] w-[60px] left-[5px] bottom-[40px] "></div>
           </div>
           <div className="grid grid-cols-1 px-5 py-7">
-            <form className="grid grid-cols-1 grid-rows-3 gap-5 place-items-center">
+            <form
+              className="grid grid-cols-1 grid-rows-3 gap-5 place-items-center"
+              action={import.meta.env.VITE_FORM_ENDPOINT}
+              method="POST"
+            >
               <div className="grid items-center grid-cols-1 gap-5 px-4 py-2 sm:grid-cols-3 ">
                 <label
                   htmlFor="name"
@@ -27,8 +31,9 @@ export const Contact = () => {
                 <input
                   type="text"
                   id="name"
-                  className="px-5 py-2 text-lg bg-transparent border rounded-md border-[var(--primary-color)] hover:border-[var(--hover-color)] outline-none sm:col-span-2 focus:outline-none"
+                  className="px-5 py-2 text-md bg-transparent border rounded-md border-[var(--primary-color)] hover:border-[var(--hover-color)] outline-none sm:col-span-2 focus:outline-none"
                   required
+                  name="Name"
                   autoComplete="off"
                 />
               </div>
@@ -43,9 +48,10 @@ export const Contact = () => {
                 <input
                   id="email"
                   type="email"
-                  className="px-5 py-2 text-lg bg-transparent border rounded-md border-[var(--primary-color)] hover:border-[var(--hover-color)] outline-none sm:col-span-2 focus:outline-none"
+                  className="px-5 py-2 text-md bg-transparent border rounded-md border-[var(--primary-color)] hover:border-[var(--hover-color)] outline-none sm:col-span-2 focus:outline-none"
                   required
                   autoComplete="off"
+                  name="Email"
                 />
               </div>
               <div className="grid items-center grid-cols-1 gap-5 px-4 py-2 sm:grid-cols-3 ">
@@ -57,9 +63,10 @@ export const Contact = () => {
                 </label>
                 <textarea
                   id="message"
-                  className="px-5 py-2 text-lg bg-transparent border rounded-md border-[var(--primary-color)] hover:border-[var(--hover-color)] outline-none sm:col-span-2 focus:outline-none"
+                  className="px-5 py-2 text-md bg-transparent border rounded-md border-[var(--primary-color)] hover:border-[var(--hover-color)] outline-none sm:col-span-2 focus:outline-none"
                   required
                   autoComplete="off"
+                  name="Message"
                   maxLength={120}
                 />
               </div>
