@@ -70,9 +70,8 @@ export const Contact = () => {
                   maxLength={120}
                 />
               </div>
-
-              <div className="grid items-center grid-cols-1 gap-5 px-4 py-2 sm:grid-cols-3 ">
-                <button className="px-5 py-4 text-lg   rounded-md bg-[var(--primary-color)] hover:bg-[var(--hover-color)] outline-none sm:col-span-2 focus:outline-none w-full text-[var(--background-color)] font-bold tracking-wider">
+              <div className="flex items-center justify-center  gap-5 px-2 py-2 sm:w-auto max-w-[300px] sm:translate-x-[-24px] w-full">
+                <button className="px-5 py-4 text-lg   rounded-md bg-[var(--primary-color)] hover:bg-[var(--hover-color)] outline-none focus:outline-none w-full text-[var(--background-color)] font-bold tracking-wider">
                   Submit
                 </button>
               </div>

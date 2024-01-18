@@ -1,4 +1,4 @@
-import { Facebook, Github, Linkedin, Twitter } from "lucide-react";
+import { Github, Linkedin } from "lucide-react";
 
 export const Footer: React.FC = () => {
   return (
@@ -39,15 +39,7 @@ export const Footer: React.FC = () => {
           </div>
           <div className="px-3 py-2">
             <h1 className="mb-6">FOLLOW ME</h1>
-            <a
-              target="_blank"
-              href="https://www.facebook.com/Aayush.914/"
-              className="flex gap-2 text-[var(--text-primary)] mb-4 hover:underline px-1 ]"
-              rel="noreferrer"
-            >
-              <Facebook />
-              <p>Facebook</p>
-            </a>
+
             <a
               href="https://www.linkedin.com/in/aayush15l/"
               target="_blank"
@@ -58,13 +50,13 @@ export const Footer: React.FC = () => {
               <p>LinkdeIn</p>
             </a>
             <a
-              href="https://x.com/Aayush15l"
+              href="https://github.com/AaaayushXD"
               target="_blank"
               className="flex gap-2 text-[var(--text-primary)] mb-4 hover:underline px-1 ]"
               rel="noreferrer"
             >
-              <Twitter />
-              <p>X</p>
+              <Github />
+              <p>Github</p>
             </a>
           </div>
           <div className="px-3 py-2">
@@ -98,14 +90,6 @@ export const Footer: React.FC = () => {
           </div>
           <div className="flex gap-5 px-3 py-2 text-[var(--text-primary)] items-center  mb-2">
             <a
-              target="_blank"
-              href="https://www.facebook.com/Aayush.914/"
-              className="hover:text-[var(--hover-color)]"
-              rel="noreferrer"
-            >
-              <Facebook />
-            </a>
-            <a
               href="https://www.linkedin.com/in/aayush15l/"
               target="_blank"
               rel="noreferrer"
@@ -113,14 +97,7 @@ export const Footer: React.FC = () => {
             >
               <Linkedin />
             </a>
-            <a
-              href="https://x.com/Aayush15l"
-              target="_blank"
-              rel="noreferrer"
-              className="hover:text-[var(--hover-color)]"
-            >
-              <Twitter />
-            </a>
+
             <a
               href="https://github.com/AaaayushXD"
               target="_blank"

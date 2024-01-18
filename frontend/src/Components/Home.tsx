@@ -73,7 +73,6 @@ export const BlobMakerBottom: React.FC<{ url: string; alt: string }> = (
       <img
         src={props.url}
         alt={props.alt}
-        loading="lazy"
         className="w-full bg-center bg-repeat max-h-[150px]"
       />
     </div>
@@ -86,7 +85,6 @@ export const BlobMakerTop: React.FC<{ url: string; alt: string }> = (props) => {
       <img
         src={props.url}
         alt={props.alt}
-        loading="lazy"
         className="w-full bg-center bg-repeat max-h-[200px]"
       />
     </div>
