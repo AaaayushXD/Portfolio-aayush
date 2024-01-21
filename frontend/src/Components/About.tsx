@@ -1,7 +1,17 @@
 import { Github, Linkedin } from "lucide-react";
 import { HireMeButton } from "./Navbar";
+import { useEffect, useState } from "react";
+import { getCV } from "../firebase/database";
 
 export const About: React.FC = () => {
+  const [cv, setCV] = useState<string>();
+  const getData = async () => {
+    const data = await getCV();
+    setCV(data);
+  };
+  useEffect(() => {
+    getData();
+  }, []);
   return (
     <>
       <div
@@ -71,11 +81,7 @@ export const About: React.FC = () => {
                   <HireMeButton />
                 </div>
                 <div className=" border-2 border-[var(--navbar-color)] flex items-center rounded-md hover:bg-[var(--secondary-color)] cursor-pointer ">
-                  <a
-                    href="https://firebasestorage.googleapis.com/v0/b/portfolio-al.appspot.com/o/Aayush.pdf?alt=media&token=3b4cbb9f-52cb-4e17-983e-c7969e57db46"
-                    target="_blank"
-                    className="px-3 py-2"
-                  >
+                  <a href={cv} target="_blank" className="px-3 py-2">
                     Download CV
                   </a>
                 </div>
