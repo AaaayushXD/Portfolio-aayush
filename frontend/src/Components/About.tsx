@@ -72,7 +72,7 @@ export const About: React.FC = () => {
                 </div>
                 <div className=" border-2 border-[var(--navbar-color)] flex items-center rounded-md hover:bg-[var(--secondary-color)] cursor-pointer ">
                   <a
-                    href="https://firebasestorage.googleapis.com/v0/b/portfolio-al.appspot.com/o/Aayush.pdf?alt=media&token=f138ac03-6814-4ef3-8e44-a3a157cce086"
+                    href="https://firebasestorage.googleapis.com/v0/b/portfolio-al.appspot.com/o/Aayush.pdf?alt=media&token=3b4cbb9f-52cb-4e17-983e-c7969e57db46"
                     target="_blank"
                     className="px-3 py-2"
                   >
