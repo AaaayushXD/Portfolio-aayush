@@ -3,6 +3,7 @@ import { Navbar } from "./Navbar";
 import { Skills } from "./Skills";
 import { Detail, Folders, ProjectDetail } from "../models/models";
 import {
+  getCVData,
   getDataFromDataBase,
   removeDataFromDataBase,
   updateDataInDataBase,
@@ -13,6 +14,7 @@ export const Home: React.FC = () => {
   // State management
   const [skillInfo, setSkillsInfo] = useState<Detail[]>();
   const [projectInfo, setProjectInfo] = useState<ProjectDetail[]>();
+  // const [cv, setCV] = useState<string>();
 
   const updateData = async (folder: Folders, data: Detail | ProjectDetail) => {
     await updateDataInDataBase({ folder: folder.folder }, data);
@@ -35,9 +37,16 @@ export const Home: React.FC = () => {
     getData({ folder: folder.folder });
   };
 
+  const getCV = async () => {
+    const url = await getCVData();
+    if (!url) return;
+    // setCV(url);
+  };
+
   useEffect(() => {
     getData({ folder: "skills" });
     getData({ folder: "projects" });
+    getCV();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 

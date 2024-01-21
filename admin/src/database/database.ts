@@ -6,6 +6,7 @@ import {
   arrayUnion,
   doc,
   getDoc,
+  setDoc,
   updateDoc,
 } from "firebase/firestore";
 
@@ -53,4 +54,17 @@ export const removeDataFromDataBase = async (
 ) => {
   const ref = doc(db, "portfolio", folder.folder);
   await updateDoc(ref, { data: arrayRemove(detail) });
+};
+
+export const getCVData = async () => {
+  try {
+    const cvRef = ref(storage, "cv/Aayush.pdf");
+    const docRef = doc(db, "portfolio", "cv");
+    if (!cvRef || !docRef) return;
+    const url = await getDownloadURL(cvRef).then((url) => url);
+    await setDoc(docRef, { file: url });
+    return url;
+  } catch (err) {
+    console.error(err);
+  }
 };
