@@ -1,6 +1,7 @@
 import { Github, Linkedin } from "lucide-react";
 
 export const Footer: React.FC = () => {
+  const date = new Date();
   return (
     <>
       <div className="w-full h-full bg-[var(--background-color)] pt-6 text-[var(--text-primary)]">
@@ -76,7 +77,7 @@ export const Footer: React.FC = () => {
         <div className="flex flex-col justify-between gap-3 px-4 pb-[80px] md:pb-5 sm:flex-row">
           <div className="px-3 py-2">
             <p className="flex gap-1 text-[var(--text-primary)]">
-              © 2023{" "}
+              Copyright © {date.getFullYear()}{" "}
               <a
                 href="https://portfoliosite-aayush.netlify.app/"
                 target="_blank"
