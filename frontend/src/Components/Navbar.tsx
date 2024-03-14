@@ -1,4 +1,4 @@
-import LOGO from "../assets/aayushlogo.png";
+import LOGO from "/logos/aayushlogo.png";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
 import { SwitchButton } from "./SwitchButton";

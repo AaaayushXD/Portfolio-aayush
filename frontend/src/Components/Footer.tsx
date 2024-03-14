@@ -79,7 +79,7 @@ export const Footer: React.FC = () => {
             <p className="flex gap-1 text-[var(--text-primary)]">
               Copyright © {date.getFullYear()}{" "}
               <a
-                href="https://portfoliosite-aayush.netlify.app/"
+                href="#"
                 target="_blank"
                 className="hover:text-[var(--primary-color)] hover:underline"
                 rel="noreferrer"

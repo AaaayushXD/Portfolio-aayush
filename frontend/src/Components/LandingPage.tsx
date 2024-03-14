@@ -1,5 +1,4 @@
-
-import Image from "../assets/illustration.png";
+import Image from "/utils/illustration.png";
 import { TypeAnimation } from "react-type-animation";
 
 interface BlobImage {
